@@ -6,7 +6,7 @@ const styles = {
 	mobileLink:
 		"inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600",
 	joinButton:
-		"inline-flex justify-center px-4 py-3 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md items-center hover:bg-blue-700 focus:bg-blue-700",
+		"inline-flex justify-center px-4 py-2 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md items-center hover:bg-blue-700 focus:bg-blue-700",
 };
 
 const Header = () => {
@@ -17,14 +17,14 @@ const Header = () => {
 	};
 
 	return (
-		<header className="pb-6 bg-white lg:pb-0 max-w-6xl mx-auto shadow-md border rounded-2xl m-4">
-			<div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+		<header className="pb-6 bg-white lg:pb-0 max-w-5xl mx-auto shadow-md border rounded-[30px] m-4">
+			<div className="mx-auto sm:px-4 lg:px-6">
 				{/* lg+ */}
-				<nav className="flex items-center justify-between h-16 lg:h-20">
+				<nav className="flex items-center justify-between py-4">
 					<div className="flex-shrink-0">
 						<Link href="#" title="Aura UI" className="flex">
 							<img
-								className="w-auto h-8 lg:h-10"
+								className="w-auto h-4 lg:h-8"
 								src="https://www.auraui.com/logo-light.png"
 								alt="Aura UI Logo"
 							/>

@@ -5,8 +5,9 @@ import { useState, useMemo } from 'react'
 import Head from 'next/head'
 import Header from '@/component/Header'
 import iconsData from '@/data/iconsData.json'
-import Icon from '@/components/Icon'
+import Icon from '@/component/Icon'
 import Divider from '@/component/Divider'
+import Footer from '@/component/Footer'
 
 const HomePage: NextPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -34,8 +35,8 @@ const HomePage: NextPage = () => {
         <meta name="description" content="Open source icons. Lovingly hand-crafted." />
       </Head>
 
-      <Header />
-      <main className="max-w-6xl mx-auto px-4 py-16">
+      <main className="max-w-7xl mx-auto px-10 pt-6 border-l border-r">
+        <Header />
         <section className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Open source icons.<br />Lovingly hand-crafted.
@@ -80,6 +81,7 @@ const HomePage: NextPage = () => {
             </section>
           )
         })}
+        <Footer />
       </main>
     </>
   )

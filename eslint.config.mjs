@@ -9,8 +9,12 @@ const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
 });
 
-const eslintConfig = [
+export default [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "@next/next/no-img-element": "off",
+      "@next/next/no-html-link-for-pages": "off"
+    }
+  }
 ];
-
-export default eslintConfig;

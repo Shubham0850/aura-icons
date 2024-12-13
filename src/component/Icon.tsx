@@ -1,4 +1,5 @@
-import React, { type ReactElement } from 'react'
+import React from 'react';
+import type { ReactElement } from 'react';
 import DOMPurify from 'dompurify';
 import parse from 'html-react-parser';
 

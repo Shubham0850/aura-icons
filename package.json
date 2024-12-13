@@ -13,6 +13,7 @@
     "dompurify": "^3.2.3",
     "fs": "^0.0.1-security",
     "html-react-parser": "^5.2.0",
+    "isomorphic-dompurify": "^2.19.0",
     "next": "15.1.0",
     "path": "^0.12.7",
     "react": "^19.0.0",
