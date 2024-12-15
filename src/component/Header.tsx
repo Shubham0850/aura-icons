@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 
 const styles = {
@@ -9,22 +9,37 @@ const styles = {
 		"inline-flex justify-center px-4 py-2 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md items-center hover:bg-blue-700 focus:bg-blue-700",
 };
 
-const Header = () => {
+const Header = ({ searchTerm, setSearchTerm }: { searchTerm: string; setSearchTerm: (term: string) => void }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.metaKey && event.key === 'k') {
+				event.preventDefault();
+				inputRef.current?.focus();
+			}
+		};
+
+		window.addEventListener('keydown', handleKeyDown);
+		return () => {
+			window.removeEventListener('keydown', handleKeyDown);
+		};
+	}, []);
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
 
 	return (
-		<header className="pb-6 bg-white lg:pb-0 max-w-5xl mx-auto shadow-md border rounded-[30px] m-4">
-			<div className="mx-auto sm:px-4 lg:px-6">
+		<header className="pb-6 bg-white lg:pb-0 max-w-5xl mx-auto shadow-md border rounded-[25px] m-4">
+			<div className="mx-auto sm:px-4 lg:px-4">
 				{/* lg+ */}
-				<nav className="flex items-center justify-between py-4">
+				<nav className="flex items-center justify-between py-3">
 					<div className="flex-shrink-0">
 						<Link href="#" title="Aura UI" className="flex">
 							<img
-								className="w-auto h-4 lg:h-8"
+								className="w-auto h-4 lg:h-6"
 								src="https://www.auraui.com/logo-light.png"
 								alt="Aura UI Logo"
 							/>
@@ -43,24 +58,45 @@ const Header = () => {
             )} */}
 					</button>
 
-					<div className="hidden mr-6 lg:flex lg:items-center lg:ml-auto lg:space-x-10">
-						<Link href="#" className={styles.link} title="Icons">
-							Icons
-						</Link>
-						<Link href="#" className={styles.link} title="Usage">
-							Usage
-						</Link>
-						<Link href="#" className={styles.link} title="Resources">
-							Resources
-						</Link>
-						<Link href="#" className={styles.link} title="Pricing">
-							Pricing
-						</Link>
-					</div>
+					<div className="hidden lg:flex lg:items-center lg:ml-auto lg:space-x-5">
+						<div>
+							{/* Search Input */}
+							<div className="max-w-2xl mx-auto relative">
+								<input
+									type="text"
+									ref={inputRef}
+									value={searchTerm}
+									placeholder="Search icons..."
+									onChange={(e) => setSearchTerm(e.target.value)}
+									className="w-full pl-12 pr-16 py-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-500 focus:ring-1 focus:ring-[#333] focus:outline-none"
+								/>
+								<img
+									src="/icons/general/search.svg"
+									alt="Search"
+									className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"
+								/>
+								<span className="absolute right-2 top-1/2 transform -translate-y-1/2 border border-gray-200 rounded-md bg-white px-2 py-1 text-xs text-gray-500 shadow-sm font-bold">
+									⌘ K
+								</span>
+							</div>
+						</div>
+						<div className="flex space-x-4">
+							<div className="flex items-center p-2 border border-gray-200 justify-center rounded-xl bg-white shadow-sm">
+								{/* Replace with your actual icons. Here is an example X (ex-Twitter) SVG */}
+								<img src="/icons/general/home-1.svg" alt="GitHub" className="w-5 h-5 text-gray-400" />
+							</div>
 
-					<Link href="#" className={styles.joinButton} role="button">
-						Get started now
-					</Link>
+							<div className="flex items-center justify-center p-2 border border-gray-200 rounded-xl bg-white shadow-sm">
+								{/* GitHub Icon */}
+								<img src="/icons/general/home-1.svg" alt="GitHub" className="w-5 h-5 text-gray-400" />
+							</div>
+
+							<div className="flex items-center justify-center p-2 border border-gray-200 rounded-xl bg-white shadow-sm">
+								{/* Discord Icon */}
+								<img src="/icons/general/home-1.svg" alt="GitHub" className="w-5 h-5 text-gray-400" />
+							</div>
+						</div>
+					</div>
 				</nav>
 
 				{/* xs to lg */}

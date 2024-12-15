@@ -8,9 +8,18 @@ import iconsData from '@/data/iconsData.json'
 import Icon from '@/component/Icon'
 import Divider from '@/component/Divider'
 import Footer from '@/component/Footer'
+import PageWrapper from '@/component/PageWrapper'
+import IconInfo from '@/component/IconInfo'
 
 const HomePage: NextPage = () => {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState('');
+  const [iconInfo, setIconInfo] = useState<{
+    svg: string | null,
+    name: string | null
+  }>({
+    svg: null,
+    name: null
+  });
 
   // Extract unique categories from iconsData
   const categories = useMemo(() => {
@@ -29,61 +38,48 @@ const HomePage: NextPage = () => {
   }, [searchTerm])
 
   return (
-    <>
-      <Head>
-        <title>Aura Icons</title>
-        <meta name="description" content="Open source icons. Lovingly hand-crafted." />
-      </Head>
+    <PageWrapper>
+      <>
+        <Head>
+          <title>Aura Icons</title>
+          <meta name="description" content="Open source icons. Lovingly hand-crafted." />
+        </Head>
 
-      <main className="max-w-7xl mx-auto px-10 pt-6 border-l border-r">
-        <Header />
-        <section className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Open source icons.<br />Lovingly hand-crafted.
-          </h1>
-          <p className="text-gray-600 mb-8">
-            Premium designed icons for use in web, iOS, Android, and desktop apps.
-            Completely open source, MIT licensed.
-          </p>
+        <main className="pt-6">
 
-          <div className="relative max-w-md mx-auto">
-            <input
-              type="text"
-              placeholder="Search icons..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-        </section>
+          <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-        {categories.map(category => {
-          const categoryIcons = filteredIcons.filter(icon => icon.category === category)
-          if (categoryIcons.length === 0) return null
+          {categories.map(category => {
+            const categoryIcons = filteredIcons.filter(icon => icon.category === category)
+            if (categoryIcons.length === 0) return null
 
-          return (
-            <section key={category} className="mb-12">
-              <Divider />
-              <h2 className="text-xl font-semibold text-gray-800 mb-4 capitalize">
-                {category} Icons
-              </h2>
-              <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-8">
-                {categoryIcons.map(icon => (
-                  <div key={icon.name} className="flex flex-col items-center text-center text-gray-700 shadow-md p-4 rounded-md">
-                    <Icon
-                      svg={icon.svg}
-                      className="w-8 h-8 text-gray-800"
-                    />
-                    <span className="mt-2 text-sm">{icon.name}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )
-        })}
-        <Footer />
-      </main>
-    </>
+            return (
+              <section key={category} className="mb-12">
+                <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 ">
+                  {categoryIcons.map(icon => (
+                    <div
+                      key={icon.name}
+                      onClick={() => setIconInfo({ name: icon.name, svg: icon.svg })}
+                      onKeyDown={() => setIconInfo({ name: icon.name, svg: icon.svg })}
+                      className="flex cursor-pointer flex-col items-center hover:shadow-md text-center text-gray-700 px-4 py-6"
+                    >
+                      <Icon
+                        svg={icon.svg}
+                        title={icon.name}
+                      />
+                      <span className="mt-2 text-sm">{icon.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <Divider category={category} />
+              </section>
+            )
+          })}
+          <IconInfo iconInfo={iconInfo} setIconInfo={setIconInfo} />
+          <Footer />
+        </main>
+      </>
+    </PageWrapper>
   )
 }
 
