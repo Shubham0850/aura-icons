@@ -55,7 +55,8 @@ const HomePage: NextPage = () => {
 
             return (
               <section key={category} className="mb-12">
-                <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 ">
+                <Divider category={category} />
+                <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 my-12">
                   {categoryIcons.map(icon => (
                     <div
                       key={icon.name}
@@ -67,11 +68,10 @@ const HomePage: NextPage = () => {
                         svg={icon.svg}
                         title={icon.name}
                       />
-                      <span className="mt-2 text-sm">{icon.name}</span>
+                      <span className="mt-2 text-xs">{icon.name}</span>
                     </div>
                   ))}
                 </div>
-                <Divider category={category} />
               </section>
             )
           })}

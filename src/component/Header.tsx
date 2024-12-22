@@ -36,14 +36,27 @@ const Header = ({ searchTerm, setSearchTerm }: { searchTerm: string; setSearchTe
 			<div className="mx-auto sm:px-4 lg:px-4">
 				{/* lg+ */}
 				<nav className="flex items-center justify-between py-3">
-					<div className="flex-shrink-0">
-						<Link href="#" title="Aura UI" className="flex">
-							<img
-								className="w-auto h-4 lg:h-6"
-								src="https://www.auraui.com/logo-light.png"
-								alt="Aura UI Logo"
-							/>
+					<div className="flex items-center space-x-8">
+						<div className="flex-shrink-0">
+							<Link href="#" title="Aura UI" className="flex">
+								<img
+									className="w-auto h-4 lg:h-6"
+									src="https://www.auraui.com/logo-light.png"
+									alt="Aura UI Logo"
+								/>
+							</Link>
+
+						</div>
+
+						<Link href="/usages" className="text-sm font-semibold text-gray-500">
+							Usages
 						</Link>
+						<Link href="/about" className="text-sm font-semibold text-gray-500">
+							About
+						</Link>
+						<a href="https://www.auraui.com" target="_blank" rel="noreferrer" className="text-sm font-semibold text-gray-500">
+							auraUI
+						</a>
 					</div>
 
 					<button
