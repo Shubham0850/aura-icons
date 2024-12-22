@@ -13,7 +13,7 @@ export default function PageWrapper({ children }: PageWrapperProps) {
       <div className="relative mx-auto max-w-7xl ">
         {/* Numbers and ticks */}
         <div className="absolute top-0 -left-10 flex flex-col justify-between items-center">
-          {increments.map((num, idx) => (
+          {increments.map((num) => (
             <div key={num} className="my-12 -rotate-90">
               {/* Number */}
               <span className="text-[10px] text-gray-300 w-8 text-right">
@@ -37,7 +37,7 @@ export default function PageWrapper({ children }: PageWrapperProps) {
 
         {/* Numbers and ticks */}
         <div className="absolute top-0 -right-10 flex flex-col justify-between items-center">
-          {increments.map((num, idx) => (
+          {increments.map((num) => (
             <div key={num} className="my-12 rotate-90">
               {/* Number */}
               <span className="text-[10px] text-gray-300 w-8 text-right">

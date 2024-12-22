@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ReactElement } from 'react';
-import DOMPurify from 'dompurify';
+import DOMPurify from "isomorphic-dompurify";
 import parse, { Element } from 'html-react-parser';
 
 interface IconProps {
