@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
+import { BsGithub } from "react-icons/bs";
 
 const styles = {
   link: "text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600",
@@ -55,9 +56,6 @@ const Header = ({
             </div>
 
             <div className="hidden lg:flex space-x-4">
-              <Link href="/usages" className={styles.link}>
-                Usages
-              </Link>
               <Link href="/about" className={styles.link}>
                 About
               </Link>
@@ -67,7 +65,7 @@ const Header = ({
                 rel="noreferrer"
                 className={styles.link}
               >
-                auraUI
+                AuraUI
               </Link>
             </div>
           </div>
@@ -100,27 +98,15 @@ const Header = ({
               </span>
             </div>
             <div className="flex space-x-4">
-              <div className="flex items-center p-2 border border-gray-200 justify-center rounded-xl bg-white shadow-sm">
-                <img
-                  src="/icons/general/home-1.svg"
-                  alt="Home"
-                  className="w-5 h-5 text-gray-400"
-                />
-              </div>
-              <div className="flex items-center justify-center p-2 border border-gray-200 rounded-xl bg-white shadow-sm">
-                <img
-                  src="/icons/general/home-1.svg"
-                  alt="GitHub"
-                  className="w-5 h-5 text-gray-400"
-                />
-              </div>
-              <div className="flex items-center justify-center p-2 border border-gray-200 rounded-xl bg-white shadow-sm">
-                <img
-                  src="/icons/general/home-1.svg"
-                  alt="Discord"
-                  className="w-5 h-5 text-gray-400"
-                />
-              </div>
+              <Link
+                href="https://github.com/Shubham0850/aura-icons"
+                target="_blank"
+                className=" "
+              >
+                <div className="flex items-center p-2 border border-gray-200 justify-center rounded-xl bg-white shadow-sm">
+                  <BsGithub size={20} />
+                </div>
+              </Link>
             </div>
           </div>
         </nav>
