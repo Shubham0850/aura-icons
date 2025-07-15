@@ -39,8 +39,9 @@ const Header = ({
   };
 
   return (
-    <header className="bg-white shadow-md border rounded-[25px] m-4 max-w-5xl mx-auto">
-      <div className="px-3 sm:px-4 lg:px-4">
+    <header className="max-w-5xl mx-auto m-4">
+      {/* Top Nav (Card) */}
+      <div className="bg-white shadow-md border rounded-[25px] px-3 sm:px-4 lg:px-4">
         <nav className="flex items-center justify-between py-3">
           <div className="flex items-center space-x-8">
             <div className="flex-shrink-0">
@@ -70,7 +71,7 @@ const Header = ({
 
           <button
             type="button"
-            className="inline-flex p-1 bg-zinc-200 text-black transition-all duration-200 rounded-md lg:hidden"
+            className="inline-flex p-1 text-black transition-all duration-200 rounded-md lg:hidden hover:opacity-70"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <RxCross2 size={24} /> : <FiMenu size={24} />}
@@ -108,39 +109,37 @@ const Header = ({
             </div>
           </div>
         </nav>
+      </div>
 
-        {/* Mobile Nav with Animation */}
-        <div
-          className={`transition-all duration-300 transform origin-top lg:hidden ${
-            isMenuOpen
-              ? "scale-y-100 opacity-100"
-              : "scale-y-0 opacity-0 pointer-events-none"
-          }`}
-        >
-          <nav className="pt-4 pb-6 bg-white border border-gray-200 rounded-md shadow-md">
-            <div className="flow-root">
-              <div className="flex flex-col px-6 -my-2 space-y-1">
-                <Link href="#" className={styles.mobileLink} title="Features">
-                  Features
-                </Link>
-                <Link href="#" className={styles.mobileLink}>
-                  Usages
-                </Link>
-                <Link href="#" className={styles.mobileLink}>
-                  About
-                </Link>
-                <Link
-                  href="https://www.auraui.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.mobileLink}
-                >
-                  AuraUI
-                </Link>
-              </div>
-            </div>
-          </nav>
-        </div>
+      {/* Mobile Nav Below Header */}
+      <div
+        className={`overflow-hidden transition-all duration-300 lg:hidden px-3 sm:px-4 ${
+          isMenuOpen
+            ? "max-h-[300px] opacity-100 mt-2"
+            : "max-h-0 opacity-0 pointer-events-none"
+        }`}
+      >
+        <nav className="pt-4 pb-6 bg-white border border-gray-200 rounded-md shadow-md">
+          <div className="flex flex-col px-6 space-y-2">
+            <Link href="#" className={styles.mobileLink} title="Features">
+              Features
+            </Link>
+            <Link href="#" className={styles.mobileLink}>
+              Usages
+            </Link>
+            <Link href="#" className={styles.mobileLink}>
+              About
+            </Link>
+            <Link
+              href="https://www.auraui.com"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.mobileLink}
+            >
+              AuraUI
+            </Link>
+          </div>
+        </nav>
       </div>
     </header>
   );
