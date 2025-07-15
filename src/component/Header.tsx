@@ -5,11 +5,9 @@ import { RxCross2 } from "react-icons/rx";
 import { BsGithub } from "react-icons/bs";
 
 const styles = {
-  link: "text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600",
+  link: "text-base font-medium text-zinc-800 transition-colors duration-200 hover:text-zinc-600 focus:text-zinc-600",
   mobileLink:
-    "inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600",
-  joinButton:
-    "inline-flex justify-center px-4 py-2 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md items-center hover:bg-blue-700 focus:bg-blue-700",
+    "inline-flex py-2 text-base font-medium text-zinc-800 transition-colors duration-200 hover:text-zinc-600 focus:text-zinc-600",
 };
 
 const Header = ({
@@ -48,8 +46,8 @@ const Header = ({
             <div className="flex-shrink-0">
               <Link href="#" title="Aura UI" className="flex">
                 <img
-                  className="w-auto h-5 lg:h-6"
-                  src="https://www.auraui.com/logo-light.png"
+                  className="w-auto h-8"
+                  src="/logo.png"
                   alt="Aura UI Logo"
                 />
               </Link>
@@ -79,31 +77,31 @@ const Header = ({
           </button>
 
           <div className="hidden lg:flex lg:items-center lg:ml-auto lg:space-x-5">
-            <div className="relative max-w-2xl mx-auto">
+            <div className="relative group mx-auto transition-all duration-300 w-full max-w-[280px] focus-within:max-w-[320px]">
               <input
                 type="text"
                 ref={inputRef}
                 value={searchTerm}
                 placeholder="Search icons..."
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-16 py-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-500 focus:ring-1 focus:ring-[#333] focus:outline-none"
+                className="w-full pl-12 pr-20 py-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-500 transition-all duration-300 ease-in-out focus:ring-1 focus:ring-neutral-400 focus:outline-none focus-visible:outline-none"
               />
               <img
                 src="/icons/general/search.svg"
                 alt="Search"
-                className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"
+                className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
               />
-              <span className="absolute right-2 top-1/2 transform -translate-y-1/2 border border-gray-200 rounded-md bg-white px-2 py-1 text-xs text-gray-500 shadow-sm font-bold">
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 border border-gray-200 rounded-md bg-white px-2 py-1 text-xs text-gray-500 shadow-sm font-bold pointer-events-none">
                 ⌘ K
               </span>
             </div>
+
             <div className="flex space-x-4">
               <Link
                 href="https://github.com/Shubham0850/aura-icons"
                 target="_blank"
-                className=" "
               >
-                <div className="flex items-center p-2 border border-gray-200 justify-center rounded-xl bg-white shadow-sm">
+                <div className="flex items-center p-2 border border-gray-200 justify-center rounded-xl bg-white shadow-sm transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-100">
                   <BsGithub size={20} />
                 </div>
               </Link>
@@ -111,8 +109,15 @@ const Header = ({
           </div>
         </nav>
 
-        {isMenuOpen && (
-          <nav className="pt-4 pb-6 bg-white border border-gray-200 rounded-md shadow-md lg:hidden">
+        {/* Mobile Nav with Animation */}
+        <div
+          className={`transition-all duration-300 transform origin-top lg:hidden ${
+            isMenuOpen
+              ? "scale-y-100 opacity-100"
+              : "scale-y-0 opacity-0 pointer-events-none"
+          }`}
+        >
+          <nav className="pt-4 pb-6 bg-white border border-gray-200 rounded-md shadow-md">
             <div className="flow-root">
               <div className="flex flex-col px-6 -my-2 space-y-1">
                 <Link href="#" className={styles.mobileLink} title="Features">
@@ -130,18 +135,12 @@ const Header = ({
                   rel="noreferrer"
                   className={styles.mobileLink}
                 >
-                  auraUI
+                  AuraUI
                 </Link>
               </div>
             </div>
-
-            <div className="px-6 mt-6">
-              <Link href="#" className={styles.joinButton} role="button">
-                Get started now
-              </Link>
-            </div>
           </nav>
-        )}
+        </div>
       </div>
     </header>
   );

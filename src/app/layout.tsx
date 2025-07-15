@@ -15,14 +15,15 @@ const geistMono = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Aura Icons",
-  description: "Open source icons. Lovingly hand-crafted.",
+  title: "Aura Icons : Beautiful, Open Source Icons",
+  description:
+    "Beautiful, modern, and open-source icons — perfectly crafted for React and Next.js.",
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
