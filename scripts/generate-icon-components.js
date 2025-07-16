@@ -3,52 +3,49 @@
 const fs = require("fs");
 const path = require("path");
 
-// ✅ Path to the iconsData.json
+// Paths
 const dataPath = path.resolve(__dirname, "../src/data/iconsData.json");
-// ✅ Output folder for generated components
 const outputDir = path.resolve(__dirname, "../icon-lib/icons");
 
-// ✅ Create the folder if it doesn't exist
+// Ensure output dir exists
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// ✅ Load icons data
+// Load icons data
 const icons = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
 
-// ✅ Utility: Convert to PascalCase and remove non-alphanumerics
+// Convert name to PascalCase
 const toPascalCase = (str) =>
   str
-    .replace(/[^\w\s]/g, "") // Remove special characters
-    .replace(/[-_](\w)/g, (_, c) => c.toUpperCase()) // kebab/snake to camel
-    .replace(/\s+(\w)/g, (_, c) => c.toUpperCase()) // spaces to camel
-    .replace(/^\w/, (c) => c.toUpperCase()); // capitalize first letter
+    .replace(/[^\w\s]/g, "")
+    .replace(/[-_](\w)/g, (_, c) => c.toUpperCase())
+    .replace(/\s+(\w)/g, (_, c) => c.toUpperCase())
+    .replace(/^\w/, (c) => c.toUpperCase());
 
-// ✅ Utility: Fix SVG properties and make width, height, and stroke customizable
-const fixSvgProps = (svgContent) => {
-  return svgContent
+// Convert SVG attributes to camelCase
+function fixSvgAttributes(svg) {
+  return svg
     .replace(/stroke-width/g, "strokeWidth")
     .replace(/stroke-linecap/g, "strokeLinecap")
     .replace(/stroke-linejoin/g, "strokeLinejoin")
     .replace(/clip-path/g, "clipPath")
-    .replace(/width="[^"]+"/g, 'width="{props.width || 24}"') // Default to 24px if no width prop is passed
-    .replace(/height="[^"]+"/g, 'height="{props.height || 24}"') // Default to 24px if no height prop is passed
-    .replace(/stroke="[^"]+"/g, 'stroke={`${props.stroke || "black"}` }'); // Default to black if no stroke color is passed
-};
+    .replace(/fill-rule/g, "fillRule")
+    .replace(/clip-rule/g, "clipRule");
+}
 
-// ✅ Generate React component file for each icon
+// Generate each component
 icons.forEach((icon) => {
   const componentName = toPascalCase(icon.name.trim());
-
-  // Fix the SVG properties
-  const fixedSvg = fixSvgProps(icon.svg);
-
-  const svgWithProps = fixedSvg.replace("<svg", "<svg {...props}");
+  const fixedSvg = fixSvgAttributes(icon.svg).replace(
+    "<svg",
+    "<svg {...props}", // this allows customization of props
+  );
 
   const componentCode = `import React from "react";
 
 const ${componentName} = (props: React.SVGProps<SVGSVGElement>) => (
-  ${svgWithProps}
+  ${fixedSvg}
 );
 
 export default ${componentName};

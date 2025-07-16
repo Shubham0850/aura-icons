@@ -1,6 +1,6 @@
 {
   "name": "@kunalkumar156/aura-icons",
-  "version": "1.0.2",
+  "version": "1.1.1",
   "description": "A set of beautiful open-source React SVG icons",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "generate": "node ../scripts/generate-icon-components.js",
-    "build": "tsup src/index.ts --dts --format esm,cjs --out-dir dist"
+    "build": "tsup src/index.ts --dts --format esm,cjs --out-dir dist",
+    "publish": "npm publish --access public"
   },
   "keywords": [
     "icons",
