@@ -18,6 +18,27 @@ export const metadata: Metadata = {
   title: "Aura Icons : Beautiful, Open Source Icons",
   description:
     "Beautiful, modern, and open-source icons — perfectly crafted for React and Next.js.",
+  openGraph: {
+    title: "Aura Icons : Beautiful, Open Source Icons",
+    description:
+      "Beautiful, modern, and open-source icons — perfectly crafted for React and Next.js.",
+    images: [
+      {
+        url: "/ogImage.png", // Path to your Open Graph image in the public directory
+        width: 1200,
+        height: 630,
+        alt: "Aura Icons Preview Image",
+      },
+    ],
+    siteName: "Aura Icons",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aura Icons : Beautiful, Open Source Icons",
+    description:
+      "Beautiful, modern, and open-source icons — perfectly crafted for React and Next.js.",
+    images: ["/ogImage.png"],
+  },
 };
 
 export default function RootLayout({
