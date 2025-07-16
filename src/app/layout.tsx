@@ -22,19 +22,19 @@ export const metadata: Metadata = {
     title: "Aura Icons : Beautiful, Open Source Icons",
     description:
       "Beautiful, modern, and open-source icons — perfectly crafted for React and Next.js.",
-    url: "https://yourdomain.com", // replace with your domain
+    url: "https://icons.auraui.com/",
     images: [
       {
-        url: "/og-image.png", // Path to the OG image in the public folder
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Aura Icons Logo",
+        alt: "Aura Icons",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle", // add your twitter handle here if available
+    site: "@mekunalkr",
     title: "Aura Icons : Beautiful, Open Source Icons",
     description:
       "Beautiful, modern, and open-source icons — perfectly crafted for React and Next.js.",
