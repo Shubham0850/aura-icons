@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -22,22 +22,23 @@ export const metadata: Metadata = {
     title: "Aura Icons : Beautiful, Open Source Icons",
     description:
       "Beautiful, modern, and open-source icons — perfectly crafted for React and Next.js.",
+    url: "https://yourdomain.com", // replace with your domain
     images: [
       {
-        url: "/ogImage.png", // Path to your Open Graph image in the public directory
+        url: "/og-image.png", // Path to the OG image in the public folder
         width: 1200,
         height: 630,
-        alt: "Aura Icons Preview Image",
+        alt: "Aura Icons Logo",
       },
     ],
-    siteName: "Aura Icons",
   },
   twitter: {
     card: "summary_large_image",
+    site: "@yourtwitterhandle", // add your twitter handle here if available
     title: "Aura Icons : Beautiful, Open Source Icons",
     description:
       "Beautiful, modern, and open-source icons — perfectly crafted for React and Next.js.",
-    images: ["/ogImage.png"],
+    images: ["/og-image.png"],
   },
 };
 
@@ -48,6 +49,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta property="og:image" content="/og-image.png" />
+        <meta property="twitter:image" content="/og-image.png" />
+        {/* Add other meta tags like title, description, etc. */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
       >
