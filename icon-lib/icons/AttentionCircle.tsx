@@ -1,0 +1,18 @@
+import React from "react";
+
+const AttentionCircle = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} width="{props.width || 24}" height="{props.height || 24}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clipPath="url(#clip0_2497_25961)">
+<circle cx="12" cy="11.9999" r="9" stroke={`${props.stroke || "black"}` } strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<rect x="12" y="16" width="{props.width || 24}" height="{props.height || 24}" stroke={`${props.stroke || "black"}` } strokeWidth="3" strokeLinejoin="round"/>
+<path d="M12 12L12 8" stroke={`${props.stroke || "black"}` } strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_2497_25961">
+<rect width="{props.width || 24}" height="{props.height || 24}" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+);
+
+export default AttentionCircle;

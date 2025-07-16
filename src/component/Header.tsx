@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { BsGithub } from "react-icons/bs";
+import { ArrowDown1, Bitcoin2, Bluetooth } from "@kunalkumar156/aura-icons";
 
 const styles = {
   link: "text-base font-medium text-zinc-800 transition-colors duration-200 hover:text-zinc-600 focus:text-zinc-600",

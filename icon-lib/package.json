@@ -1,0 +1,32 @@
+{
+  "name": "@kunalkumar156/aura-icons",
+  "version": "1.0.2",
+  "description": "A set of beautiful open-source React SVG icons",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "generate": "node ../scripts/generate-icon-components.js",
+    "build": "tsup src/index.ts --dts --format esm,cjs --out-dir dist"
+  },
+  "keywords": [
+    "icons",
+    "react",
+    "svg",
+    "aura",
+    "library"
+  ],
+  "author": "Kishor Kunal",
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^18.2.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  }
+}

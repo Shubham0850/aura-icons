@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-const fs = require('node:fs');
-const path = require('node:path');
+const fs = require("node:fs");
+const path = require("node:path");
 
-const iconsDir = path.join(__dirname, '../public/icons');
-const outputPath = path.join(__dirname, '../src/data/iconsData.json');
+const iconsDir = path.join(__dirname, "../public/icons");
+const outputPath = path.join(__dirname, "../src/data/iconsData.json");
 
 const iconsData = [];
 
@@ -23,10 +23,10 @@ function processDirectory(dir) {
 
       // Iterate through files in the category directory
       for (const catEntry of categoryEntries) {
-        if (catEntry.isFile() && catEntry.name.endsWith('.svg')) {
+        if (catEntry.isFile() && catEntry.name.endsWith(".svg")) {
           const svgPath = path.join(fullPath, catEntry.name);
-          const svgContent = fs.readFileSync(svgPath, 'utf-8').trim();
-          const iconName = path.basename(catEntry.name, '.svg');
+          const svgContent = fs.readFileSync(svgPath, "utf-8").trim();
+          const iconName = path.basename(catEntry.name, ".svg");
 
           iconsData.push({
             name: iconName,
@@ -44,4 +44,6 @@ processDirectory(iconsDir);
 
 // Write the output file
 fs.writeFileSync(outputPath, JSON.stringify(iconsData, null, 2));
-console.log(`iconsData.json created successfully with ${iconsData.length} icons.`);
+console.log(
+  `iconsData.json created successfully with ${iconsData.length} icons.`,
+);

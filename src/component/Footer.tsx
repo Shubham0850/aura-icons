@@ -1,3 +1,4 @@
+import { Airpods, Bluetooth } from "@kunalkumar156/aura-icons";
 import React from "react";
 
 function Footer() {
