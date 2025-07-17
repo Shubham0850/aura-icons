@@ -38,29 +38,38 @@ function IconInfo({ iconInfo, setIconInfo }: IconInfoProps) {
 
   if (!iconInfo.name || !iconInfo.svg) return null;
 
+  const fixSvgAttributes = (svg: string) => {
+    return svg
+      .replace(/stroke-width/g, "strokeWidth")
+      .replace(/stroke-linecap/g, "strokeLinecap")
+      .replace(/stroke-linejoin/g, "strokeLinejoin")
+      .replace(/clip-path/g, "clipPath")
+      .replace(/fill-rule/g, "fillRule")
+      .replace(/clip-rule/g, "clipRule")
+      .replace(/stroke="[^"]*"/g, 'stroke="currentColor"')
+      .replace(/fill="[^"]*"/g, 'fill="currentColor"')
+      .replace(/<svg([^>]+)>/, "<svg$1 {...props}>");
+  };
+
   const handleCopySVG = (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigator.clipboard.writeText(iconInfo.svg || "");
+    const fixedSvg = fixSvgAttributes(iconInfo.svg || "");
+    navigator.clipboard.writeText(fixedSvg);
     setCopiedType("svg");
     setTimeout(() => setCopiedType(null), 2000);
   };
 
   const handleCopyJSX = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const svgToReactComponent = (svg: string) => {
-      return `
-import React from 'react';
+    if (!iconInfo.name) return;
+    const componentName = iconInfo.name
+      .replace(/[^\w\s]/g, "") // remove special characters
+      .replace(/[-_](\w)/g, (_, c) => c.toUpperCase()) // kebab/snake → camel
+      .replace(/\s+(\w)/g, (_, c) => c.toUpperCase()) // spaces → camel
+      .replace(/^\w/, (c) => c.toUpperCase()); // capitalize first letter
 
-const SvgIcon = (props) => (
-  ${svg.replace(/<svg/g, "<svg {...props}")}
-);
-
-export default SvgIcon;
-      `.trim();
-    };
-
-    const reactComponentString = svgToReactComponent(iconInfo.svg || "");
-    navigator.clipboard.writeText(reactComponentString);
+    const jsx = `<${componentName} />`;
+    navigator.clipboard.writeText(jsx);
     setCopiedType("jsx");
     setTimeout(() => setCopiedType(null), 2000);
   };
