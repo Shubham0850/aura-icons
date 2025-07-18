@@ -102,7 +102,7 @@ function IconInfo({ iconInfo, setIconInfo }: IconInfoProps) {
           </span>
           {copiedType !== "svg" && (
             <img
-              src="/icons/files/copy.svg"
+              src="/icons/files/Copy.svg"
               alt="Copy SVG"
               className="w-5 h-5"
             />
@@ -121,7 +121,7 @@ function IconInfo({ iconInfo, setIconInfo }: IconInfoProps) {
           </span>
           {copiedType !== "jsx" && (
             <img
-              src="/icons/files/copy.svg"
+              src="/icons/files/Copy.svg"
               alt="Copy JSX"
               className="w-5 h-5"
             />
@@ -137,7 +137,7 @@ function IconInfo({ iconInfo, setIconInfo }: IconInfoProps) {
         >
           <span className="text-sm">Close</span>
           <img
-            src="/icons/interface/close.svg"
+            src="/icons/interface/Close.svg"
             alt="Close"
             className="w-5 h-5"
           />
