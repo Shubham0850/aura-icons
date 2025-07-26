@@ -1,6 +1,6 @@
 {
-  "name": "@kunalkumar156/aura-icons",
-  "version": "1.1.2",
+  "name": "@auralabs/aura-icons",
+  "version": "1.2.1",
   "description": "A set of beautiful open-source React SVG icons",
   "main": "dist/index.js",
   "module": "dist/index.js",

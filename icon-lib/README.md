@@ -1,4 +1,4 @@
-# @kunalkumar156/aura-icons
+# @auralabs/aura-icons
 
 A set of beautiful, modern, and customizable **open-source React SVG icons**, crafted with love 💖 and built for seamless integration with **React** and **Next.js**.
 
@@ -9,9 +9,9 @@ A set of beautiful, modern, and customizable **open-source React SVG icons**, cr
 Install the package using your preferred package manager:
 
 ```bash
-npm install @kunalkumar156/aura-icons
+npm install @auralabs/aura-icons
 # or
-yarn add @kunalkumar156/aura-icons
+yarn add @auralabs/aura-icons
 ```
 
 ---
@@ -21,7 +21,7 @@ yarn add @kunalkumar156/aura-icons
 Import and use the icons in your React components:
 
 ```tsx
-import { Bitcoin2 } from "@kunalkumar156/aura-icons";
+import { Bitcoin2 } from "@auralabs/aura-icons";
 
 function App() {
   return (
@@ -69,7 +69,7 @@ If you’re working on the package locally:
 - Link it locally using `npm link`, and then use it in another project with:
 
 ```bash
-npm link @kunalkumar156/aura-icons
+npm link @auralabs/aura-icons
 ```
 
 ---

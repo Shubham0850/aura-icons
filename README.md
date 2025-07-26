@@ -21,16 +21,17 @@
 **auraUI Icons** is a sub-project of the broader [auraUI](https://github.com/Shubham0850/auraui) framework, focused on providing a robust, easy-to-use icon set. Whether you’re building a quick prototype or a polished production app, auraUI Icons helps you deliver consistent, scalable iconography with minimal effort.
 
 ## Table of Contents
+
 - [auraUI Icons](#auraui-icons)
-	- [What is auraUI Icons?](#what-is-auraui-icons)
-	- [Table of Contents](#table-of-contents)
-	- [Documentation](#documentation)
-	- [Key Features](#key-features)
-	- [Installation](#installation)
-	- [Usage](#usage)
-	- [Contributing](#contributing)
-	- [License](#license)
-	- [Let's Talk](#lets-talk)
+  - [What is auraUI Icons?](#what-is-auraui-icons)
+  - [Table of Contents](#table-of-contents)
+  - [Documentation](#documentation)
+  - [Key Features](#key-features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Let's Talk](#lets-talk)
 
 ---
 
@@ -48,28 +49,30 @@ Visit [AuraUI](https://auraui.com/components) for the main auraUI documentation.
 ## Installation
 
 ```bash
-npm install auraui-icons
+npm install @auralabs/aura-icons
 # or
-yarn add auraui-icons
+yarn add @auralabs/aura-icons
 ```
 
-*(Note: Make sure you have the main auraUI library installed if you want to fully leverage auraUI’s ecosystem.)*
+_(Note: Make sure you have the main auraUI library installed if you want to fully leverage auraUI’s ecosystem.)_
 
 ## Usage
 
-1. **Import an Icon**  
+1. **Import an Icon**
+
    ```jsx
-   import { ChatAddIcon } from 'auraui-icons';
-   
+   import { ChatAddIcon } from "@auralabs/aura-icons";
+
    function MyComponent() {
      return <ChatAddIcon className="text-gray-800 w-6 h-6" />;
    }
    ```
-2. **Customize**  
-   - Apply Tailwind classes (or your own CSS) to set size, color, etc.  
+
+2. **Customize**
+   - Apply Tailwind classes (or your own CSS) to set size, color, etc.
    - Icons are lightweight and easily styled for any brand requirement.
 
-3. **Explore More Icons**  
+3. **Explore More Icons**
    - See the [documentation site](https://auraui.com/components) for a complete list of icons and examples.
 
 ## Contributing
@@ -78,7 +81,7 @@ We love contributions! Visit our [contributing guide](https://github.com/Shubham
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).  
+This project is licensed under the [MIT License](LICENSE).
 
 ## Let's Talk
 
@@ -89,4 +92,7 @@ Need help or just want to chat? Book a call:
 ---
 
 **auraUI Icons** is proudly part of the [auraUI](https://github.com/Shubham0850/auraui) project. Made with ❤️ by the auraUI team.
+
+```
+
 ```
